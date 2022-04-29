@@ -1,17 +1,29 @@
 // Assignment Code
 const generateBtn = document.querySelector("#generate");
 const passwordText = document.querySelector("#password");
-
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-//My Plan: 
-//1. when clicking the button to generate a password, a series of prompts pop up. Store the user inputs into variables. 
+// let lowercaseQ;
+// let uppercaseQ;
+// let numericsQ;
+// let specialCharQ;
+// let lengthQ;
 const lowercaseQ = prompt("Do you want to include lowercase letters? Please answer Yes or No.");
 const uppercaseQ = prompt("Do you want to include uppercase letters? Please answer Yes or No.");
 const numericsQ = prompt("Do you want to include numbers? Please answer Yes or No.");
 const specialCharQ = prompt("Do you want to include special characters? Please answer Yes or No.");
 const lengthQ = parseInt(prompt("How long do you want your password to be? Please enter a number between 8 and 128 characters.")); //converting string to a number. 
+const passwordString = [];
+
+
+
+// const lowercaseQ = prompt("Do you want to include lowercase letters? Please answer Yes or No.");
+// const uppercaseQ = prompt("Do you want to include uppercase letters? Please answer Yes or No.");
+// const numericsQ = prompt("Do you want to include numbers? Please answer Yes or No.");
+// const specialCharQ = prompt("Do you want to include special characters? Please answer Yes or No.");
+// const lengthQ = parseInt(prompt("How long do you want your password to be? Please enter a number between 8 and 128 characters.")); 
+
+
+//My Plan: 
+
 
 //2. use arrays to store lowercase letters, uppercase letters, numerics, and special characters. 
 
@@ -38,8 +50,9 @@ const upperNumSpecial = upperArray.concat(numberArray).concat(specialCharArray);
 
 //4. generate random string --- Testing generating a random string: 
 //Adding conditions
+
+function generate() {
 //For allArray
-const passwordString = [];
 if (lowercaseQ.toLowerCase() === "yes" && uppercaseQ.toLowerCase() === "yes" && numericsQ.toLowerCase() ==="yes" && specialCharQ.toLowerCase() === "yes") {
   for (let i = 0; i <= lengthQ; i++) {
     const randomAllCharacter = allArray[Math.floor(Math.random() * allArray.length)];
@@ -49,42 +62,42 @@ if (lowercaseQ.toLowerCase() === "yes" && uppercaseQ.toLowerCase() === "yes" && 
 //For 2 options chosen
 //lowerUpper
 if (lowercaseQ.toLowerCase() === "yes" && uppercaseQ.toLowerCase() === "yes") {
-  for (let i = 0; i <= lengthQ; i++) {
+  for (let i = 0; i <= lengthQ - 1; i++) {
     const randomLUCharacter = lowerUpper[Math.floor(Math.random() * lowerUpper.length)];
     passwordString.push(randomLUCharacter);
   }
 } 
 //lowerNum
 if (lowercaseQ.toLowerCase() === "yes" && numericsQ.toLowerCase() ==="yes") {
-  for (let i = 0; i <= lengthQ; i++) {
+  for (let i = 0; i <= lengthQ -1; i++) {
     const randomLNCharacter = lowerNum[Math.floor(Math.random() * lowerNum.length)];
     passwordString.push(randomLNCharacter);
   }
 }
 //lowerSpecial
 if (lowercaseQ.toLowerCase() === "yes" && specialCharQ.toLowerCase() === "yes") {
-  for (let i = 0; i <= lengthQ; i++) {
+  for (let i = 0; i <= lengthQ - 1; i++) {
     const randomLSCharacter = lowerSpecial[Math.floor(Math.random() * lowerSpecial.length)];
     passwordString.push(randomLSCharacter);
   }
 }
 //upperNum
 if (uppercaseQ.toLowerCase() === "yes" && numericsQ.toLowerCase() === "yes") {
-  for (let i = 0; i <= lengthQ; i++) {
+  for (let i = 0; i <= lengthQ - 1; i++) {
     const randomUNCharacter = upperNum[Math.floor(Math.random() * upperNum.length)];
     passwordString.push(randomUNCharacter);
   }
 }
 //upperSpecial
 if (uppercaseQ.toLowerCase() === "yes" && specialCharQ.toLowerCase() === "yes") {
-  for (let i = 0; i <= lengthQ; i++) {
+  for (let i = 0; i <= lengthQ - 1; i++) {
     const randomUSCharacter = upperSpecial[Math.floor(Math.random() * upperSpecial.length)];
     passwordString.push(randomUSCharacter);
   }
 }
 //numSpecial
 if (numericsQ.toLowerCase() === "yes" && specialCharQ.toLowerCase() === "yes") {
-  for (let i = 0; i <= lengthQ; i++) {
+  for (let i = 0; i <= lengthQ - 1; i++) {
     const randomNSCharacter = numSpecial[Math.floor(Math.random() * numSpecial.length)];
     passwordString.push(randomNSCharacter);
   }
@@ -92,48 +105,56 @@ if (numericsQ.toLowerCase() === "yes" && specialCharQ.toLowerCase() === "yes") {
 //For 3 options chosen: 
 //lowerUpperNum
 if (lowercaseQ.toLowerCase() === "yes" && uppercaseQ.toLowerCase() === "yes" && numericsQ.toLowerCase() === "yes") {
-  for (let i = 0; i <= lengthQ; i++) {
+  for (let i = 0; i <= lengthQ - 1; i++) {
     const randomLUNCharacter = lowerUpperNum[Math.floor(Math.random() * lowerUpperNum.length)];
     passwordString.push(randomLUNCharacter);
   }
 } 
 //lowerUpperSpecial
 if (lowercaseQ.toLowerCase() === "yes" && uppercaseQ.toLowerCase() === "yes" && specialCharQ.toLowerCase() === "yes") {
-  for (let i = 0; i <= lengthQ; i++) {
+  for (let i = 0; i <= lengthQ - 1; i++) {
     const randomLUSCharacter = lowerUpperSpecial[Math.floor(Math.random() * lowerUpperSpecial.length)];
     passwordString.push(randomLUSCharacter);
   }
 } 
 //lowerNumSpecial
 if (lowercaseQ.toLowerCase() === "yes" && numericsQ.toLowerCase() === "yes" && specialCharQ.toLowerCase() === "yes") {
-  for (let i = 0; i <= lengthQ; i++) {
+  for (let i = 0; i <= lengthQ - 1; i++) {
     const randomLNSCharacter = lowerNumSpecial[Math.floor(Math.random() * lowerNumSpecial.length)];
     passwordString.push(randomLNSCharacter);
   }
 } 
 //upperNumSpecial
 if (uppercaseQ.toLowerCase() === "yes" && numericsQ.toLowerCase() === "yes" && specialCharQ.toLowerCase() === "yes") {
-  for (let i = 0; i <= lengthQ; i++) {
+  for (let i = 0; i <= lengthQ - 1; i++) {
     const randomUNSCharacter = upperNumSpecial[Math.floor(Math.random() * upperNumSpecial.length)];
     passwordString.push(randomUNSCharacter);
   }
 } 
+}
+
+// Add event listener to generate button
+generateBtn.addEventListener("click", () => {
+  generate();
+  passwordText.innerHTML = passwordString.join("");
+});
 
 //reference
 // for (let i = 0; i <= lengthQ; i++) {
 //   const randomCharacter = lowerArray[Math.floor(Math.random() * lowerArray.length)];
 //   passwordString.push(randomCharacter);
 // }
-passwordText = console.log(passwordString.join(""));
+//passwordText.innerHTML = passwordString.join("");
+
 
 
 
 //4. write a function to generate the password. 
 // Based on the prompts answers, use .push() methods to construct new arrays that meet the requrement, once new arrays are constructed, generate random password base on the length the user chose. 
 
-function generatePasswor() {
-  //setting conditions, if all, 2 or 3 options chosen
-}
+// function generatePasswor() {
+//   //setting conditions, if all, 2 or 3 options chosen
+// }
  
 //4. Once a password is generated, use starter code writePassword funciton to write it into the textbox. 
 
