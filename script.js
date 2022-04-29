@@ -2,6 +2,7 @@
 // Connecting the DOM
 const generateBtn = document.querySelector("#generate");
 const passwordText = document.querySelector("#password");
+const formElement = document.querySelector("#form");
 // Setting up prompts and store them in variables in a function. 
 let lowercaseQ;
 let uppercaseQ;
@@ -47,7 +48,7 @@ const upperNumSpecial = upperArray.concat(numberArray).concat(specialCharArray);
 //4. Set a function to generate random string, I tested the conditions first before wrapping the entire condition with a function. 
 
 function generate() {
-  passwordText.innerHTML = "";
+  //passwordText.value = "";
 //Adding conditions
 //For allArray
 if (lowercaseQ.toLowerCase() === "yes" && uppercaseQ.toLowerCase() === "yes" && numericsQ.toLowerCase() ==="yes" && specialCharQ.toLowerCase() === "yes") {
@@ -58,42 +59,42 @@ if (lowercaseQ.toLowerCase() === "yes" && uppercaseQ.toLowerCase() === "yes" && 
 } 
 //For 2 options chosen
 //lowerUpper
-if (lowercaseQ.toLowerCase() === "yes" && uppercaseQ.toLowerCase() === "yes") {
+else if (lowercaseQ.toLowerCase() === "yes" && uppercaseQ.toLowerCase() === "yes") {
   for (let i = 0; i < lengthQ; i++) {
     const randomLUCharacter = lowerUpper[Math.floor(Math.random() * lowerUpper.length)];
     passwordString.push(randomLUCharacter);
   }
 } 
 //lowerNum
-if (lowercaseQ.toLowerCase() === "yes" && numericsQ.toLowerCase() ==="yes") {
+else if (lowercaseQ.toLowerCase() === "yes" && numericsQ.toLowerCase() ==="yes") {
   for (let i = 0; i < lengthQ; i++) {
     const randomLNCharacter = lowerNum[Math.floor(Math.random() * lowerNum.length )];
     passwordString.push(randomLNCharacter);
   }
 }
 //lowerSpecial
-if (lowercaseQ.toLowerCase() === "yes" && specialCharQ.toLowerCase() === "yes") {
+else if (lowercaseQ.toLowerCase() === "yes" && specialCharQ.toLowerCase() === "yes") {
   for (let i = 0; i < lengthQ; i++) {
     const randomLSCharacter = lowerSpecial[Math.floor(Math.random() * lowerSpecial.length)];
     passwordString.push(randomLSCharacter);
   }
 }
 //upperNum
-if (uppercaseQ.toLowerCase() === "yes" && numericsQ.toLowerCase() === "yes") {
+else if (uppercaseQ.toLowerCase() === "yes" && numericsQ.toLowerCase() === "yes") {
   for (let i = 0; i < lengthQ; i++) {
     const randomUNCharacter = upperNum[Math.floor(Math.random() * upperNum.length)];
     passwordString.push(randomUNCharacter);
   }
 }
 //upperSpecial
-if (uppercaseQ.toLowerCase() === "yes" && specialCharQ.toLowerCase() === "yes") {
+else if (uppercaseQ.toLowerCase() === "yes" && specialCharQ.toLowerCase() === "yes") {
   for (let i = 0; i < lengthQ; i++) {
     const randomUSCharacter = upperSpecial[Math.floor(Math.random() * upperSpecial.length)];
     passwordString.push(randomUSCharacter);
   }
 }
 //numSpecial
-if (numericsQ.toLowerCase() === "yes" && specialCharQ.toLowerCase() === "yes") {
+else if (numericsQ.toLowerCase() === "yes" && specialCharQ.toLowerCase() === "yes") {
   for (let i = 0; i < lengthQ; i++) {
     const randomNSCharacter = numSpecial[Math.floor(Math.random() * numSpecial.length)];
     passwordString.push(randomNSCharacter);
@@ -101,28 +102,28 @@ if (numericsQ.toLowerCase() === "yes" && specialCharQ.toLowerCase() === "yes") {
 }
 //For 3 options chosen: 
 //lowerUpperNum
-if (lowercaseQ.toLowerCase() === "yes" && uppercaseQ.toLowerCase() === "yes" && numericsQ.toLowerCase() === "yes") {
+else if (lowercaseQ.toLowerCase() === "yes" && uppercaseQ.toLowerCase() === "yes" && numericsQ.toLowerCase() === "yes") {
   for (let i = 0; i < lengthQ; i++) {
     const randomLUNCharacter = lowerUpperNum[Math.floor(Math.random() * lowerUpperNum.length)];
     passwordString.push(randomLUNCharacter);
   }
 } 
 //lowerUpperSpecial
-if (lowercaseQ.toLowerCase() === "yes" && uppercaseQ.toLowerCase() === "yes" && specialCharQ.toLowerCase() === "yes") {
+else if (lowercaseQ.toLowerCase() === "yes" && uppercaseQ.toLowerCase() === "yes" && specialCharQ.toLowerCase() === "yes") {
   for (let i = 0; i < lengthQ; i++) {
     const randomLUSCharacter = lowerUpperSpecial[Math.floor(Math.random() * lowerUpperSpecial.length)];
     passwordString.push(randomLUSCharacter);
   }
 } 
 //lowerNumSpecial
-if (lowercaseQ.toLowerCase() === "yes" && numericsQ.toLowerCase() === "yes" && specialCharQ.toLowerCase() === "yes") {
+else if (lowercaseQ.toLowerCase() === "yes" && numericsQ.toLowerCase() === "yes" && specialCharQ.toLowerCase() === "yes") {
   for (let i = 0; i < lengthQ; i++) {
     const randomLNSCharacter = lowerNumSpecial[Math.floor(Math.random() * lowerNumSpecial.length)];
     passwordString.push(randomLNSCharacter);
   }
 } 
 //upperNumSpecial
-if (uppercaseQ.toLowerCase() === "yes" && numericsQ.toLowerCase() === "yes" && specialCharQ.toLowerCase() === "yes") {
+else if (uppercaseQ.toLowerCase() === "yes" && numericsQ.toLowerCase() === "yes" && specialCharQ.toLowerCase() === "yes") {
   for (let i = 0; i < lengthQ; i++) {
     const randomUNSCharacter = upperNumSpecial[Math.floor(Math.random() * upperNumSpecial.length)];
     passwordString.push(randomUNSCharacter);
@@ -132,9 +133,12 @@ if (uppercaseQ.toLowerCase() === "yes" && numericsQ.toLowerCase() === "yes" && s
 
 //5. Adding an event listener to the generate button.
 generateBtn.addEventListener("click", () => {
+  //call store Prompts function.
   storePrompts();
   //call generate function. 
   generate();
   //writing the generated string into HTML
   passwordText.innerHTML = passwordString.join("");
 });
+
+// formElement.target.reset();
