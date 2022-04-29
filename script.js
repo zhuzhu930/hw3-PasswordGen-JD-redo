@@ -2,12 +2,21 @@
 // Connecting the DOM
 const generateBtn = document.querySelector("#generate");
 const passwordText = document.querySelector("#password");
-// Setting up prompts and store them in variables. 
-const lowercaseQ = prompt("Do you want to include lowercase letters? Please answer Yes or No.");
-const uppercaseQ = prompt("Do you want to include uppercase letters? Please answer Yes or No.");
-const numericsQ = prompt("Do you want to include numbers? Please answer Yes or No.");
-const specialCharQ = prompt("Do you want to include special characters? Please answer Yes or No.");
-const lengthQ = parseInt(prompt("How long do you want your password to be? Please enter a number between 8 and 128 characters.")); //converting string to a number. 
+// Setting up prompts and store them in variables in a function. 
+let lowercaseQ;
+let uppercaseQ;
+let numericsQ;
+let specialCharQ;
+let lengthQ;
+
+function storePrompts() {
+  lowercaseQ = prompt("Do you want to include lowercase letters? Please answer Yes or No.");
+  uppercaseQ = prompt("Do you want to include uppercase letters? Please answer Yes or No.");
+  numericsQ = prompt("Do you want to include numbers? Please answer Yes or No.");
+  specialCharQ = prompt("Do you want to include special characters? Please answer Yes or No.");
+  lengthQ = parseInt(prompt("How long do you want your password to be? Please enter a number between 8 and 128 characters.")); //converting string to a number. 
+}
+
 //Setting an empty array for the password stirng. 
 const passwordString = [];
 
@@ -38,6 +47,7 @@ const upperNumSpecial = upperArray.concat(numberArray).concat(specialCharArray);
 //4. Set a function to generate random string, I tested the conditions first before wrapping the entire condition with a function. 
 
 function generate() {
+  passwordText.innerHTML = "";
 //Adding conditions
 //For allArray
 if (lowercaseQ.toLowerCase() === "yes" && uppercaseQ.toLowerCase() === "yes" && numericsQ.toLowerCase() ==="yes" && specialCharQ.toLowerCase() === "yes") {
@@ -122,6 +132,7 @@ if (uppercaseQ.toLowerCase() === "yes" && numericsQ.toLowerCase() === "yes" && s
 
 //5. Adding an event listener to the generate button.
 generateBtn.addEventListener("click", () => {
+  storePrompts();
   //call generate function. 
   generate();
   //writing the generated string into HTML
