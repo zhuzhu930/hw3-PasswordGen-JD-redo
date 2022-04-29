@@ -3,14 +3,15 @@
 const generateBtn = document.querySelector("#generate");
 const passwordText = document.querySelector("#password");
 //const formElement = document.querySelector("#form");
-// Setting up prompts and store them in variables in a function. 
+// Decare variables in the Global scope; 
 let lowercaseQ;
 let uppercaseQ;
 let numericsQ;
 let specialCharQ;
 let lengthQ;
-let passwordString; //declare passwordString in the Global area. 
+let passwordString;
 
+//Catch prompt answers and store them in the declared variables. 
 function storePrompts() {
   lowercaseQ = prompt("Do you want to include lowercase letters? Please answer Yes or No.");
   uppercaseQ = prompt("Do you want to include uppercase letters? Please answer Yes or No.");
@@ -18,10 +19,6 @@ function storePrompts() {
   specialCharQ = prompt("Do you want to include special characters? Please answer Yes or No.");
   lengthQ = parseInt(prompt("How long do you want your password to be? Please enter a number between 8 and 128 characters.")); //converting string to a number. 
 }
-
-//Setting an empty array for the password stirng. 
-//const passwordString = [];
-
 
 //2. Use arrays to store lowercase letters, uppercase letters, numerics, and special characters. 
 
