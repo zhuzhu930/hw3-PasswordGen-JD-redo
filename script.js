@@ -1,14 +1,6 @@
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
+const generateBtn = document.querySelector("#generate");
+const passwordText = document.querySelector("#password");
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
@@ -31,7 +23,10 @@ const specialCharArray = ["~","!","@","#","$","%","^","&","*"];
 //3. Concatenate arrays based on user input: 
 //all options chosen
 const allArray = lowerArray.concat(upperArray).concat(numberArray).concat(specialCharArray);
-console.log(allArray);
+// function getRandom(allArray){
+//   return Math.random(allArray)
+// }
+// console.log(getRandom);
 //only chosen 2 options
 const lowerUpper = lowerArray.concat(upperArray);
 const lowerNum = lowerArray.concat(numberArray);
@@ -45,7 +40,31 @@ const lowerUpperSpecial = lowerArray.concat(upperArray).concat(specialCharArray)
 const lowerNumSpecial = lowerArray.concat(numberArray).concat(specialCharArray);
 const upperNumSpecial = upperArray.concat(numberArray).concat(specialCharArray);
 
+//4. generate random string --- Testing generating a random string: 
+const lowerArray = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+const passwordString = [];
+for (let i = 0; i < 10; i++) {
+  const randomCharacter = lowerArray[Math.floor(Math.random() * lowerArray.length)];
+  passwordString.push(randomCharacter);
+}
+console.log(passwordString.join(""));
+
+
+
 //4. write a function to generate the password. 
 // Based on the prompts answers, use .push() methods to construct new arrays that meet the requrement, once new arrays are constructed, generate random password base on the length the user chose. 
 
+function generatePasswor() {
+  //setting conditions, if all, 2 or 3 options chosen
+}
+ 
 //4. Once a password is generated, use starter code writePassword funciton to write it into the textbox. 
+
+// Write password to the #password input
+// function writePassword() {
+//   var password = generatePassword();
+//   var passwordText = document.querySelector("#password");
+
+//   passwordText.value = password;
+
+// }
