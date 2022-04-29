@@ -2,13 +2,14 @@
 // Connecting the DOM
 const generateBtn = document.querySelector("#generate");
 const passwordText = document.querySelector("#password");
-const formElement = document.querySelector("#form");
+//const formElement = document.querySelector("#form");
 // Setting up prompts and store them in variables in a function. 
 let lowercaseQ;
 let uppercaseQ;
 let numericsQ;
 let specialCharQ;
 let lengthQ;
+let passwordString; //declare passwordString in the Global area. 
 
 function storePrompts() {
   lowercaseQ = prompt("Do you want to include lowercase letters? Please answer Yes or No.");
@@ -19,7 +20,7 @@ function storePrompts() {
 }
 
 //Setting an empty array for the password stirng. 
-const passwordString = [];
+//const passwordString = [];
 
 
 //2. Use arrays to store lowercase letters, uppercase letters, numerics, and special characters. 
@@ -48,7 +49,7 @@ const upperNumSpecial = upperArray.concat(numberArray).concat(specialCharArray);
 //4. Set a function to generate random string, I tested the conditions first before wrapping the entire condition with a function. 
 
 function generate() {
-  //passwordText.value = "";
+  passwordString = []; //reset the array for the passwordString. 
 //Adding conditions
 //For allArray
 if (lowercaseQ.toLowerCase() === "yes" && uppercaseQ.toLowerCase() === "yes" && numericsQ.toLowerCase() ==="yes" && specialCharQ.toLowerCase() === "yes") {
@@ -141,4 +142,4 @@ generateBtn.addEventListener("click", () => {
   passwordText.innerHTML = passwordString.join("");
 });
 
-// formElement.target.reset();
+
