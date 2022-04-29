@@ -15,6 +15,10 @@ generateBtn.addEventListener("click", writePassword);
 
 //My Plan: 
 //1. when clicking the button to generate a password, a series of prompts pop up. Store the user inputs into variables. 
+const lowercaseQ = prompt("Do you want to include lowercase letters? Please answer Yes or No");
+const uppercaseQ = prompt("Do you want to include uppercase letters? Please answer Yes or No");
+const numericsQ = prompt("Do you want to include numbers? Please answer Yes or No");
+const specialCharQ = prompt("Do you want to include special characters? please answer Yes or No");
 
 //2. use arrays to store lowercase letters, uppercase letters, numerics, and special characters. 
 
