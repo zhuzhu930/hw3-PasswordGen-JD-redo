@@ -55,6 +55,31 @@ if (lowercaseQ.toLowerCase() === "yes" && uppercaseQ.toLowerCase() === "yes" && 
     passwordString.push(randomAllCharacter);
   }
 } 
+//For 1 option chosen 
+else if (lowercaseQ.toLowerCase() === "yes") {
+  for (let i = 0; i < lengthQ; i++) {
+    const randomLowerCharacter = lowerArray[Math.floor(Math.random() * lowerArray.length)];
+    passwordString.push(randomLowerCharacter);
+  }
+}
+else if (uppercaseQ.toLowerCase() === "yes") {
+  for (let i = 0; i < lengthQ; i++) {
+    const randomUpperCharacter = upperArray[Math.floor(Math.random() * upperArray.length)];
+    passwordString.push(randomUpperCharacter);
+  }
+} 
+else if (numericsQ.toLowerCase() === "yes") {
+  for (let i = 0; i < lengthQ; i++) {
+    const randomNumericsCharacter = numberArray[Math.floor(Math.random() * numberArray.length)];
+    passwordString.push(randomNumericsCharacter);
+  }
+} 
+else if (specialCharQ.toLowerCase() === "yes") {
+  for (let i = 0; i < lengthQ; i++) {
+    const randomSpecialCharacter = specialCharArray[Math.floor(Math.random() * specialCharArray.length)];
+    passwordString.push(randomSpecialCharacter);
+  }
+} 
 //For 2 options chosen
 //lowerUpper
 else if (lowercaseQ.toLowerCase() === "yes" && uppercaseQ.toLowerCase() === "yes") {
